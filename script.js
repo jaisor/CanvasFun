@@ -39,3 +39,13 @@ function moveUp() {
     ctx.fillStyle = 'blue';
     ctx.fillRect(x, y, 100, 100); 
 }
+function moveDown() { 
+    ctx.fillStyle = 'white';
+    ctx.fillRect(x, y, 100, 100);
+
+    y = y + 10;
+
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(x, y, 100, 100);
+}
+
