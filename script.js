@@ -1,51 +1,52 @@
-console.log("TEST");
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d');
 
-const ctx = document.getElementById('canvas').getContext('2d');
+const bg = new Image();
+bg.src = "img/bg_01.svg" 
 
-var x = 300;
-var y = 300;
+function init() {
+    window.requestAnimationFrame(draw);
+}
 
-ctx.fillStyle = 'blue';
-ctx.fillRect(x, y, 100, 100);
+var tms = performance.now();
+var x = 30;
+var y = 30;
 
-function moveLeft() {
-    console.log("Moving Left!");
+function draw() {
+    //ctx.globalCompositeOperation = 'destination-over';
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
 
-    ctx.fillStyle = 'white  ';
-    ctx.fillRect(x, y, 100, 100);     
+    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
-    x = x - 10;
+    // Advance time
+    var t = performance.now();
+    var dt = t - tms;
+    tms = t;
 
+    var fps = Math.round(1000 * 1/dt);
+    ctx.fillStyle = 'black';
+    ctx.fillText(`FPS: ${fps}`, 2, 10);
+    
+    //
     ctx.fillStyle = 'blue';
     ctx.fillRect(x, y, 100, 100);
+    //
+
+    window.requestAnimationFrame(draw);
+}
+
+function moveLeft() {
+    x = x - 10;
 }
 
 function moveRight() {
-    ctx.fillStyle = 'white';
-    ctx.fillRect(x, y, 100, 100);
-
     x = x + 10;
-
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(x, y, 100, 100); 
 } 
 
 function moveUp() { 
-    ctx.fillStyle = 'white';
-    ctx.fillRect(x, y, 100, 100);
-
     y = y - 10;
-
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(x, y, 100, 100); 
 }
 function moveDown() { 
-    ctx.fillStyle = 'white';
-    ctx.fillRect(x, y, 100, 100);
-
     y = y + 10;
-
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(x, y, 100, 100);
 }
 
