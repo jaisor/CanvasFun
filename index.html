@@ -13,7 +13,9 @@
 </head>
 
 <body onload="init();">
-  <h1>Hello!</h1>
+  <h1>Tank Game</h1>
+  <h2>By Jordan and Alex Marinov</h2>
+  <br/>
   <button type="button" onclick="moveLeft();">Left</button>
   <button type="button" onclick="moveRight();">Right</button>
   <button type="button" onclick="moveUp();">Up</button>
@@ -22,7 +24,9 @@
   <br/><br/>
   <canvas id="canvas" width="1080" height="720" style="border:10px double #000000;"></canvas>
   <img width="0" height="0" src="img/bg_01.svg">
-  <script src="js/cubic-spline.js"></script>
+  <script src="js/libs/cubic-spline.js"></script>
+  <script src="js/terrain.js"></script>
+  <script src="js/game.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
